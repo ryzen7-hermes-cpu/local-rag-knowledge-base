@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-rag-knowledge-base"
+version = "0.1.0"
+description = "Local RAG knowledge base system for GitHub, OpenAI, Anthropic, and DeepSeek docs"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "GitHub Copilot" }]
+license = { text = "MIT" }
+keywords = ["rag", "llm", "ollama", "knowledge-base", "ai"]
+
+dependencies = [
+  "requests>=2.31.0",
+  "beautifulsoup4>=4.12.0",
+  "click>=8.1.7",
+  "python-dotenv>=1.0.1",
+  "pydantic>=2.7.4",
+  "rich>=13.0.0",
+  "chromadb>=0.5.0",
+  "sentence-transformers>=2.5.1",
+  "numpy>=1.26.0",
+  "streamlit>=1.35.0",
+  "langchain>=0.3.0",
+  "langchain-community>=0.3.0",
+  "langchain-text-splitters>=0.3.0",
+]
+
+[project.scripts]
+local-rag = "knowledge_base_app.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
